@@ -24,11 +24,11 @@ export function Timeline({ chapters }: { chapters: JourneyChapter[] }) {
       <div className="mx-auto max-w-6xl">
         <p className="text-xs tracking-[0.22em] text-signal uppercase">Journey</p>
         <h2 className="mt-3 font-display text-3xl italic text-foreground sm:text-5xl">
-          From first degree to Safety lead.
+          Safety lead, then the path that got here.
         </h2>
         <p className="mt-4 max-w-xl text-muted">
-          Taylor’s, a UK scholarship, Flutter and Node at Fusionex, then Grab Safety —
-          from shipping in the rider apps to leading the iOS team that owns AudioProtect.
+          Current role first. Then AudioProtect, the iOS years at Grab, Fusionex, a UK
+          scholarship, and Taylor’s.
         </p>
 
         <div className="mt-14 flex gap-10 lg:mt-20">
@@ -71,12 +71,8 @@ export function Timeline({ chapters }: { chapters: JourneyChapter[] }) {
             </svg>
 
             <div className="space-y-10 lg:space-y-24 lg:pl-12">
-              {chapters.map((chapter, index) => (
-                <ChapterCard
-                  key={chapter.id}
-                  chapter={chapter}
-                  isLast={index === chapters.length - 1}
-                />
+              {chapters.map((chapter) => (
+                <ChapterCard key={chapter.id} chapter={chapter} />
               ))}
             </div>
           </div>

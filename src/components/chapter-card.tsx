@@ -5,13 +5,8 @@ import { formatRange, yearOf } from "@/lib/dates";
 import { Reveal } from "@/lib/motion";
 import { Waveform } from "./waveform";
 
-export function ChapterCard({
-  chapter,
-  isLast,
-}: {
-  chapter: JourneyChapter;
-  isLast: boolean;
-}) {
+export function ChapterCard({ chapter }: { chapter: JourneyChapter }) {
+  const isCurrent = chapter.end === null;
   const project = chapter.projectSlug ? getProject(chapter.projectSlug) : undefined;
   const href = chapter.projectSlug
     ? `/work/${chapter.projectSlug}`
@@ -30,7 +25,7 @@ export function ChapterCard({
         <p className="mt-1 text-xs tracking-wide text-muted uppercase">
           {formatRange(chapter.start, chapter.end)}
         </p>
-        {isLast ? (
+        {isCurrent ? (
           <p className="mt-3 hidden items-center gap-2 text-xs text-signal lg:flex">
             <span className="live-dot h-1.5 w-1.5 rounded-full bg-signal" />
             Present
