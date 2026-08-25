@@ -1,0 +1,13 @@
+---
+description: This repo is Sean's career portfolio site only
+alwaysApply: true
+---
+
+# Portfolio project
+
+This workspace is a personal website (Next.js, TypeScript, Tailwind). Do not add Homebridge, LeetCode practice, or a language-learning app here.
+
+- Write copy that matches work that actually exists on GitHub or in production.
+- Keep the site small: home, selected projects, about/contact.
+- Use the App Router under `src/app`. Prefer server components unless the UI needs client state.
+- After layout or interaction changes, verify the flow in the browser.
