@@ -7,6 +7,7 @@ export const site = {
   linkedin: "https://www.linkedin.com/in/seanlaikishun",
   github: "https://github.com/seanlai16",
   resumePath: "/sean-lai-resume.pdf",
+  url: "https://portfolio-seanlai16-5342.vercel.app",
   languages: [
     "English",
     "Bahasa Malaysia",

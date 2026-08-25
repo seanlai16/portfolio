@@ -23,6 +23,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
   title: {
     default: metadataTitle,
     template: `%s — ${site.name}`,
@@ -32,6 +33,7 @@ export const metadata: Metadata = {
     title: metadataTitle,
     description: metadataDescription,
     type: "website",
+    url: "/",
   },
 };
 

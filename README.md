@@ -1,8 +1,10 @@
 # Portfolio
 
-Personal site for [Sean Lai](https://github.com/seanlai16). Next.js, TypeScript, Tailwind.
+Personal site for [Sean Lai](https://github.com/seanlai16).
 
-This repo is the website only. Home automation, LeetCode, and other apps belong in their own folders.
+**Live: [https://portfolio-seanlai16-5342.vercel.app](https://portfolio-seanlai16-5342.vercel.app)**
+
+Next.js, TypeScript, Tailwind. This repo is the website only.
 
 ## Setup
 
