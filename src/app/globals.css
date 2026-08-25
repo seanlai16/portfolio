@@ -1,33 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  color-scheme: light;
+  color-scheme: only light;
   --background: #ffffff;
   --foreground: #3c3c3c;
   --signal: #58cc02;
   --signal-dim: #46a302;
   --on-signal: #ffffff;
   --muted: #777777;
-  --elevated: #f7f7f7;
+  --elevated: #ffffff;
   --line: #e5e5e5;
   --rail: #afafaf;
-  --grain: 0.02;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
-    --background: #131f24;
-    --foreground: #f7f7f7;
-    --signal: #89e219;
-    --signal-dim: #58cc02;
-    --on-signal: #131f24;
-    --muted: #afafaf;
-    --elevated: #202f36;
-    --line: #37464f;
-    --rail: #52656d;
-    --grain: 0.04;
-  }
 }
 
 @theme inline {
@@ -47,23 +30,14 @@
 
 html {
   scroll-behavior: smooth;
-  background: var(--background);
+  background: #ffffff;
+  color-scheme: only light;
 }
 
 body {
-  background: var(--background);
+  background: #ffffff;
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
-}
-
-body::before {
-  content: "";
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  opacity: var(--grain);
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 .font-display {

@@ -20,7 +20,7 @@ export function Hero() {
           transition={{ duration: 0.5, ease: easeOut }}
         >
           <span className="live-dot inline-block h-1.5 w-1.5 rounded-full bg-signal" />
-          Signal live · Grab Safety
+          Grab Safety
         </motion.p>
         <motion.h1
           className="mt-6 max-w-4xl font-display text-5xl leading-[0.95] tracking-tight text-foreground sm:text-7xl lg:text-8xl"
