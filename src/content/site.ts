@@ -12,6 +12,8 @@ export const site = {
     "English",
     "Bahasa Malaysia",
     "Chinese (Simplified & Traditional)",
+    "Cantonese",
+    "Hakka",
   ],
   skills: {
     languages: ["Swift", "Dart (Flutter)", "JavaScript (Node.js)", "Objective-C"],
