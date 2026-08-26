@@ -13,13 +13,20 @@ export function BuildCard({ build }: { build: Build }) {
           {yearOf(build.updated)}
         </p>
         <p className="mt-1 text-xs tracking-wide text-muted uppercase">
-          Last updated {formatDay(build.updated)}
+          Created {formatDay(build.created)}
         </p>
+        {build.created !== build.updated ? (
+          <p className="mt-1 text-xs tracking-wide text-muted uppercase">
+            Updated {formatDay(build.updated)}
+          </p>
+        ) : null}
       </div>
 
       <Reveal>
         <div className="duo-card p-5 sm:p-8">
-          <p className="text-xs tracking-[0.18em] text-muted uppercase">Project</p>
+          <p className="text-xs tracking-[0.18em] text-muted uppercase">
+            {build.label ?? "Project"}
+          </p>
           <h2 className="mt-3 font-display text-2xl leading-tight text-foreground sm:text-3xl">
             {build.title}
           </h2>
@@ -48,28 +55,30 @@ export function BuildCard({ build }: { build: Build }) {
               </ul>
             </div>
           ) : null}
-          <div className="mt-8 flex flex-wrap gap-3">
-            {build.url ? (
-              <a
-                href={build.url}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex min-h-11 items-center rounded-full bg-signal px-4 text-sm font-medium text-on-signal"
-              >
-                Live site
-              </a>
-            ) : null}
-            {build.github ? (
-              <a
-                href={build.github}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex min-h-11 items-center rounded-full border-2 border-signal px-4 text-sm font-medium text-signal transition-colors hover:bg-signal hover:text-on-signal"
-              >
-                GitHub
-              </a>
-            ) : null}
-          </div>
+          {build.url || build.github ? (
+            <div className="mt-8 flex flex-wrap gap-3">
+              {build.url ? (
+                <a
+                  href={build.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex min-h-11 items-center rounded-full bg-signal px-4 text-sm font-medium text-on-signal"
+                >
+                  Live site
+                </a>
+              ) : null}
+              {build.github ? (
+                <a
+                  href={build.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex min-h-11 items-center rounded-full border-2 border-signal px-4 text-sm font-medium text-signal transition-colors hover:bg-signal hover:text-on-signal"
+                >
+                  GitHub
+                </a>
+              ) : null}
+            </div>
+          ) : null}
         </div>
       </Reveal>
     </article>
