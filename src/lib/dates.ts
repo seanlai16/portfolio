@@ -31,3 +31,18 @@ export function formatRange(start: string, end: string | null): string {
   if (!end) return `${from} — Present`;
   return `${from} — ${formatMonth(end)}`;
 }
+
+export function formatDay(isoDate: string): string {
+  const [year, month, day] = isoDate.split("-");
+  const monthIndex = Number(month) - 1;
+  const dayNumber = Number(day);
+  if (
+    Number.isNaN(monthIndex) ||
+    monthIndex < 0 ||
+    monthIndex > 11 ||
+    Number.isNaN(dayNumber)
+  ) {
+    return isoDate;
+  }
+  return `${dayNumber} ${MONTHS[monthIndex]} ${year}`;
+}

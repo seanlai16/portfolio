@@ -6,6 +6,7 @@ import { site } from "@/content/site";
 
 const links = [
   { href: "/#journey", label: "Journey" },
+  { href: "/projects", label: "Projects" },
   { href: "/about", label: "About" },
 ] as const;
 
