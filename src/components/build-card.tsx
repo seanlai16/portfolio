@@ -64,7 +64,7 @@ export function BuildCard({ build }: { build: Build }) {
                   rel="noreferrer"
                   className="inline-flex min-h-11 items-center rounded-full bg-signal px-4 text-sm font-medium text-on-signal"
                 >
-                  Live site
+                  {build.urlLabel ?? "Live site"}
                 </a>
               ) : null}
               {build.github ? (

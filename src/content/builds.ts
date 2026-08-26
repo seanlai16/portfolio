@@ -10,11 +10,38 @@ export type Build = {
   updated: string;
   label?: string;
   url?: string;
+  urlLabel?: string;
   github?: string;
 };
 
 /** Newest first. Prepend new work; rendering also sorts by `updated`. */
 export const builds: Build[] = [
+  {
+    slug: "our-journeys",
+    title: "Our Journeys",
+    label: "Gift",
+    summary:
+      "A password-gated 3D travel album: a globe that opens a large photo view for one destination. Built as a private gift, documented here as an engineering case study.",
+    details: [
+      "Live site is password-protected. The password is not published here — share it off-channel if someone needs a walkthrough. Photos stay behind auth; a login page alone is not enough if JPEGs are still public CDN URLs.",
+      "react-globe.gl cannot SSR. The globe is a client component, loaded with next/dynamic({ ssr: false }) so refs and pointOfView still work under the App Router.",
+      "Media lives under content/trips/, not public/. An authenticated /api/media route streams files with Cache-Control: private, no-store and path-traversal checks. Auth is a shared site password, httpOnly cookie, and a Next.js proxy gate on pages and media — Hobby-plan compatible without paying for Vercel Password Protection.",
+      "Pre-commit and prebuild reject oversized stills and video so binaries never enter git history and the serverless bundle stays within limits. iCloud originals stay in Photos; the site only gets resized JPEGs. Spec cuts: no dark “space” UI, confetti, or filters — the photo is the product. Source is a private GitHub repo; ask if you want a walkthrough.",
+    ],
+    stack: [
+      "Next.js App Router",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "react-globe.gl / Three.js",
+      "Framer Motion",
+      "Vercel",
+    ],
+    created: "2026-08-26",
+    updated: "2026-08-26",
+    url: "https://our-journeys.vercel.app",
+    urlLabel: "Live site (password)",
+  },
   {
     slug: "godaikin-homekit",
     title: "GO DAIKIN in Apple Home",
