@@ -57,6 +57,19 @@ export default function AboutPage() {
       </section>
 
       <section className="mt-16 border-t border-line pt-12">
+        <h2 className="font-display text-2xl text-foreground">Outside work</h2>
+        <ul className="mt-6 space-y-8">
+          {site.outsideWork.map((item) => (
+            <li key={item.title}>
+              <p className="text-xs text-signal">{item.when}</p>
+              <p className="mt-1 text-foreground">{item.title}</p>
+              <p className="mt-2 text-sm leading-6 text-muted">{item.detail}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="mt-16 border-t border-line pt-12">
         <h2 className="font-display text-2xl text-foreground">Languages</h2>
         <p className="mt-3 text-muted">{site.languages.join(" · ")}</p>
       </section>

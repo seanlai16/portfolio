@@ -26,6 +26,18 @@ export const site = {
       "Agile",
     ],
   },
+  outsideWork: [
+    {
+      when: "2025",
+      title: "Penang Bridge International Marathon",
+      detail: "Finished in 5 hours 38 minutes.",
+    },
+    {
+      when: "2025",
+      title: "Mount Kota Kinabalu",
+      detail: "Summit.",
+    },
+  ],
 } as const;
 
 export const metadataTitle = `${site.name} — ${site.role}`;
