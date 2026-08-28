@@ -16,8 +16,8 @@ export const site = {
     "Hakka",
   ],
   skills: {
-    languages: ["Swift", "Dart (Flutter)", "JavaScript (Node.js)", "Objective-C"],
-    platforms: ["iOS SDK", "CoreML", "AVFoundation"],
+    languages: ["Swift", "Dart (Flutter)", "JavaScript (Node.js)", "Python", "Objective-C"],
+    platforms: ["iOS SDK", "CoreML", "Machine learning", "AVFoundation"],
     practice: [
       "Architecture refactoring",
       "Specification reviews",
