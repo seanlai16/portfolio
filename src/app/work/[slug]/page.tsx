@@ -8,6 +8,7 @@ import {
   journey,
 } from "@/content/journey";
 import { getProject } from "@/content/projects";
+import { metadataDescription, site } from "@/content/site";
 import { formatRange } from "@/lib/dates";
 import { getAllWorkSlugs, isProjectSlug } from "@/lib/work";
 
@@ -27,7 +28,24 @@ export async function generateMetadata({
   const chapter = getChapter(slug);
   const title = project?.title ?? chapter?.role;
   if (!title) return {};
-  return { title };
+  const description =
+    project?.summary ?? chapter?.summary ?? metadataDescription;
+  const pageTitle = `${title} — ${site.name}`;
+  return {
+    title,
+    description,
+    openGraph: {
+      title: pageTitle,
+      description,
+      type: "article",
+      url: `/work/${slug}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: pageTitle,
+      description,
+    },
+  };
 }
 
 export default async function WorkPage({ params }: WorkPageProps) {
@@ -50,7 +68,7 @@ export default async function WorkPage({ params }: WorkPageProps) {
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-      <p className="flex items-center gap-3 text-xs tracking-[0.22em] text-signal uppercase">
+      <p className="flex items-center gap-3 text-xs tracking-[0.22em] text-signal-text font-medium uppercase">
         <Waveform className="text-signal" />
         {kicker}
       </p>
@@ -88,7 +106,7 @@ export default async function WorkPage({ params }: WorkPageProps) {
         <p className="mt-10">
           <Link
             href={`/work/${chapter.projectSlug}`}
-            className="text-signal hover:underline"
+            className="text-signal-text font-medium hover:underline"
           >
             Deep dive: {relatedProject?.title}
           </Link>
@@ -98,7 +116,7 @@ export default async function WorkPage({ params }: WorkPageProps) {
       {isProjectSlug(slug) && project ? (
         <p className="mt-10 text-sm text-muted">
           From the{" "}
-          <Link href={`/work/${project.relatedChapterSlug}`} className="text-signal hover:underline">
+          <Link href={`/work/${project.relatedChapterSlug}`} className="text-signal-text font-medium hover:underline">
             {getChapter(project.relatedChapterSlug)?.role}
           </Link>{" "}
           chapter.
@@ -109,7 +127,7 @@ export default async function WorkPage({ params }: WorkPageProps) {
         {prev ? (
           <Link href={`/work/${prev.slug}`} className="group min-h-11">
             <span className="block text-xs tracking-wide text-muted uppercase">Previous</span>
-            <span className="text-foreground group-hover:text-signal">{prev.role}</span>
+            <span className="text-foreground group-hover:text-signal-text">{prev.role}</span>
           </Link>
         ) : (
           <span />
@@ -117,7 +135,7 @@ export default async function WorkPage({ params }: WorkPageProps) {
         {next ? (
           <Link href={`/work/${next.slug}`} className="group min-h-11 sm:text-right">
             <span className="block text-xs tracking-wide text-muted uppercase">Next</span>
-            <span className="text-foreground group-hover:text-signal">{next.role}</span>
+            <span className="text-foreground group-hover:text-signal-text">{next.role}</span>
           </Link>
         ) : (
           <span />
@@ -125,7 +143,7 @@ export default async function WorkPage({ params }: WorkPageProps) {
       </nav>
 
       <p className="mt-10 text-sm">
-        <Link href="/#journey" className="text-muted hover:text-signal">
+        <Link href="/#journey" className="text-muted hover:text-signal-text">
           ← All {journey.length} chapters
         </Link>
       </p>

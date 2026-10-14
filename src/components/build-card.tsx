@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Build } from "@/content/builds";
 import { formatDay, yearOf } from "@/lib/dates";
 import { Reveal } from "@/lib/motion";
@@ -9,7 +10,7 @@ export function BuildCard({ build }: { build: Build }) {
       className="relative scroll-mt-24 lg:grid lg:grid-cols-[minmax(0,15rem)_minmax(0,1fr)] lg:gap-12 lg:py-8"
     >
       <div className="sticky top-16 z-10 -mx-4 mb-4 border-b border-line/60 bg-background/90 px-4 py-3 backdrop-blur-md lg:top-28 lg:mx-0 lg:mb-0 lg:border-0 lg:bg-transparent lg:px-0 lg:py-0 lg:backdrop-blur-none">
-        <p className="font-display text-4xl text-signal italic lg:text-6xl">
+        <p className="font-display text-4xl text-signal-text italic lg:text-6xl">
           {yearOf(build.updated)}
         </p>
         <p className="mt-1 text-xs tracking-wide text-muted uppercase">
@@ -57,12 +58,19 @@ export function BuildCard({ build }: { build: Build }) {
           ) : null}
           {build.url || build.github ? (
             <div className="mt-8 flex flex-wrap gap-3">
-              {build.url ? (
+              {build.slug === "personal-site" ? (
+                <Link
+                  href="/"
+                  className="inline-flex min-h-11 items-center rounded-full border-2 border-line px-4 text-sm font-medium text-foreground transition-colors hover:border-signal-text hover:text-signal-text"
+                >
+                  You are here (Home)
+                </Link>
+              ) : build.url ? (
                 <a
                   href={build.url}
                   target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex min-h-11 items-center rounded-full bg-signal px-4 text-sm font-medium text-on-signal"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-11 items-center rounded-full bg-signal-text px-4 text-sm font-medium text-on-signal transition-opacity hover:opacity-90"
                 >
                   {build.urlLabel ?? "Live site"}
                 </a>
@@ -71,8 +79,8 @@ export function BuildCard({ build }: { build: Build }) {
                 <a
                   href={build.github}
                   target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex min-h-11 items-center rounded-full border-2 border-signal px-4 text-sm font-medium text-signal transition-colors hover:bg-signal hover:text-on-signal"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-11 items-center rounded-full border-2 border-signal-text px-4 text-sm font-medium text-signal-text transition-colors hover:bg-signal-text hover:text-on-signal"
                 >
                   GitHub
                 </a>

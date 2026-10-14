@@ -118,6 +118,7 @@ npm run dev
 | 2026-08-27 | Outside work: Penang Bridge Marathon 2025 (5h38) + Mount Kota Kinabalu 2025. |
 | 2026-08-28 | About skills: Python + machine learning (`#1`). |
 | 2026-10-14 | This context file added. |
+| 2026-10-14 | WCAG AA contrast polish (`--signal-text` & `--muted`); route-aware nav; sitemap.xml & robots.txt; Open Graph image & Twitter cards; resume download handling. |
 
 Exact commit messages: `git log --oneline`.
 

@@ -11,26 +11,31 @@ export function Footer() {
           </p>
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-          <a className="text-muted transition-colors hover:text-signal" href={`mailto:${site.email}`}>
+          <a className="text-muted transition-colors hover:text-signal-text" href={`mailto:${site.email}`}>
             {site.email}
           </a>
           <a
-            className="text-muted transition-colors hover:text-signal"
+            className="text-muted transition-colors hover:text-signal-text"
             href={site.linkedin}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             LinkedIn
           </a>
           <a
-            className="text-muted transition-colors hover:text-signal"
+            className="text-muted transition-colors hover:text-signal-text"
             href={site.github}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             GitHub
           </a>
-          <a className="text-muted transition-colors hover:text-signal" href={site.resumePath}>
+          <a
+            className="text-muted transition-colors hover:text-signal-text"
+            href={site.resumePath}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Resume
           </a>
         </div>

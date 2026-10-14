@@ -14,7 +14,7 @@ export function Hero() {
       </div>
       <div className="mx-auto max-w-6xl">
         <motion.p
-          className="flex items-center gap-3 text-xs tracking-[0.22em] text-signal uppercase"
+          className="flex items-center gap-3 text-xs tracking-[0.22em] text-signal-text font-medium uppercase"
           initial={reduce ? false : { opacity: 1, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: easeOut }}
@@ -49,7 +49,7 @@ export function Hero() {
           <span className="text-muted" aria-hidden>
             /
           </span>
-          <a className="hover:text-signal" href={`mailto:${site.email}`}>
+          <a className="hover:text-signal-text" href={`mailto:${site.email}`}>
             {site.email}
           </a>
         </motion.div>

@@ -11,7 +11,7 @@ const builds = listedBuilds();
 export default function ProjectsPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-      <p className="text-xs tracking-[0.22em] text-signal uppercase">Projects</p>
+      <p className="text-xs tracking-[0.22em] text-signal-text font-medium uppercase">Projects</p>
       <h1 className="mt-4 font-display text-4xl italic text-foreground sm:text-6xl">
         Things I have actually run.
       </h1>

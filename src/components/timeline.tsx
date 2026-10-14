@@ -22,7 +22,7 @@ export function Timeline({ chapters }: { chapters: JourneyChapter[] }) {
       className="scroll-mt-20 border-t border-line px-4 py-16 sm:px-6 lg:px-8 lg:py-24"
     >
       <div className="mx-auto max-w-6xl">
-        <p className="text-xs tracking-[0.22em] text-signal uppercase">Journey</p>
+        <p className="text-xs tracking-[0.22em] text-signal-text font-medium uppercase">Journey</p>
         <h2 className="mt-3 font-display text-3xl italic text-foreground sm:text-5xl">
           Safety lead, then the path that got here.
         </h2>
@@ -36,8 +36,8 @@ export function Timeline({ chapters }: { chapters: JourneyChapter[] }) {
 
           <div ref={containerRef} className="relative min-w-0 flex-1">
             <svg
-              className="pointer-events-none absolute top-0 left-[0.4rem] hidden h-full w-8 text-signal lg:block"
-              viewBox="0 0 32 1000"
+              className="pointer-events-none absolute top-0 left-[0.4rem] hidden h-full w-4 text-signal lg:block"
+              viewBox="0 0 8 1000"
               preserveAspectRatio="none"
               aria-hidden
             >
@@ -52,22 +52,9 @@ export function Timeline({ chapters }: { chapters: JourneyChapter[] }) {
                 d="M4 0 L4 1000"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="1.5"
+                strokeWidth="2"
                 style={reduce ? undefined : { pathLength }}
               />
-              {chapters.map((_, index) => {
-                const y = 40 + (index * 920) / Math.max(chapters.length - 1, 1);
-                return (
-                  <polyline
-                    key={index}
-                    points={`4,${y} 10,${y - 6} 16,${y} 22,${y + 6} 28,${y}`}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeOpacity="0.35"
-                    strokeWidth="1"
-                  />
-                );
-              })}
             </svg>
 
             <div className="space-y-10 lg:space-y-24 lg:pl-12">

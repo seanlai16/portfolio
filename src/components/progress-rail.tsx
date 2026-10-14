@@ -41,7 +41,7 @@ export function ProgressRail({ chapters }: { chapters: JourneyChapter[] }) {
               <a
                 href={`#${chapter.slug}`}
                 className={`block font-display text-sm transition-colors ${
-                  isActive ? "text-signal" : "text-muted hover:text-foreground"
+                  isActive ? "text-signal-text font-medium" : "text-muted hover:text-foreground"
                 }`}
               >
                 {yearOf(chapter.start)}

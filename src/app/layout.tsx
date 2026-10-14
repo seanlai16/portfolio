@@ -35,6 +35,11 @@ export const metadata: Metadata = {
     type: "website",
     url: "/",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: metadataTitle,
+    description: metadataDescription,
+  },
 };
 
 export const viewport = {
@@ -50,7 +55,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="relative min-h-full flex flex-col bg-background text-foreground">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-sm focus:bg-signal focus:px-3 focus:py-2 focus:text-on-signal"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-sm focus:bg-signal-text focus:px-3 focus:py-2 focus:text-on-signal"
         >
           Skip to content
         </a>

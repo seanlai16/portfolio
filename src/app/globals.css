@@ -3,11 +3,12 @@
 :root {
   color-scheme: only light;
   --background: #ffffff;
-  --foreground: #3c3c3c;
+  --foreground: #2a2a2a;
   --signal: #58cc02;
+  --signal-text: #2c7700;
   --signal-dim: #46a302;
   --on-signal: #ffffff;
-  --muted: #777777;
+  --muted: #666666;
   --elevated: #ffffff;
   --line: #e5e5e5;
   --rail: #afafaf;
@@ -17,6 +18,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-signal: var(--signal);
+  --color-signal-text: var(--signal-text);
   --color-signal-dim: var(--signal-dim);
   --color-on-signal: var(--on-signal);
   --color-muted: var(--muted);

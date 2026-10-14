@@ -82,7 +82,7 @@ export const builds: Build[] = [
       "Vercel",
     ],
     created: "2026-08-25",
-    updated: "2026-08-26",
+    updated: "2026-10-14",
     url: site.url,
     github: "https://github.com/seanlai16/portfolio",
   },

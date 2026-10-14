@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { site } from "@/content/site";
 
 const links = [
@@ -12,6 +13,23 @@ const links = [
 
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
+
+  const isLinkActive = (href: string) => {
+    if (href === "/#journey") {
+      return pathname === "/" || pathname.startsWith("/work");
+    }
+    return pathname === href;
+  };
 
   return (
     <header className="sticky top-0 z-40 border-b border-line/80 bg-background/80 pt-[env(safe-area-inset-top)] backdrop-blur-md">
@@ -24,19 +42,32 @@ export function Nav() {
           {site.name}
         </Link>
 
-        <nav className="hidden items-center gap-8 text-sm text-muted lg:flex">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="transition-colors hover:text-foreground"
-            >
-              {link.label}
-            </Link>
-          ))}
+        <nav
+          aria-label="Main navigation"
+          className="hidden items-center gap-8 text-sm lg:flex"
+        >
+          {links.map((link) => {
+            const active = isLinkActive(link.href);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={active ? "page" : undefined}
+                className={`transition-colors ${
+                  active
+                    ? "font-medium text-foreground underline decoration-signal-text decoration-2 underline-offset-8"
+                    : "text-muted hover:text-foreground"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
           <a
             href={site.resumePath}
-            className="rounded-full border-2 border-line px-3 py-1.5 text-foreground transition-colors hover:border-signal hover:text-signal"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border-2 border-line px-3 py-1.5 text-foreground transition-colors hover:border-signal-text hover:text-signal-text"
           >
             Resume
           </a>
@@ -66,20 +97,30 @@ export function Nav() {
           id="mobile-nav"
           className="border-t border-line bg-background px-4 py-4 pb-[max(1rem,env(safe-area-inset-bottom))] lg:hidden"
         >
-          <nav className="flex flex-col gap-1 text-base">
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="rounded-md px-2 py-3 text-foreground"
-                onClick={() => setOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
+          <nav aria-label="Mobile navigation" className="flex flex-col gap-1 text-base">
+            {links.map((link) => {
+              const active = isLinkActive(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`rounded-md px-2 py-3 transition-colors ${
+                    active
+                      ? "bg-line/40 font-medium text-foreground"
+                      : "text-foreground hover:bg-line/20"
+                  }`}
+                  onClick={() => setOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
             <a
               href={site.resumePath}
-              className="rounded-md px-2 py-3 text-signal"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-md px-2 py-3 text-signal-text font-medium"
               onClick={() => setOpen(false)}
             >
               Resume

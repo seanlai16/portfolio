@@ -19,14 +19,14 @@ export function ChapterCard({ chapter }: { chapter: JourneyChapter }) {
       className="relative scroll-mt-24 lg:grid lg:grid-cols-[minmax(0,15rem)_minmax(0,1fr)] lg:gap-12 lg:py-8"
     >
       <div className="sticky top-16 z-10 -mx-4 mb-4 border-b border-line/60 bg-background/90 px-4 py-3 backdrop-blur-md lg:top-28 lg:mx-0 lg:mb-0 lg:border-0 lg:bg-transparent lg:px-0 lg:py-0 lg:backdrop-blur-none">
-        <p className="font-display text-4xl text-signal italic lg:text-6xl">
+        <p className="font-display text-4xl text-signal-text italic lg:text-6xl">
           {yearOf(chapter.start)}
         </p>
         <p className="mt-1 text-xs tracking-wide text-muted uppercase">
           {formatRange(chapter.start, chapter.end)}
         </p>
         {isCurrent ? (
-          <p className="mt-3 hidden items-center gap-2 text-xs text-signal lg:flex">
+          <p className="mt-3 hidden items-center gap-2 text-xs text-signal-text font-medium lg:flex">
             <span className="live-dot h-1.5 w-1.5 rounded-full bg-signal" />
             Present
           </p>
@@ -62,7 +62,7 @@ export function ChapterCard({ chapter }: { chapter: JourneyChapter }) {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href={href}
-              className="inline-flex min-h-11 items-center rounded-full border-2 border-signal px-4 text-sm font-medium text-signal transition-colors hover:bg-signal hover:text-on-signal"
+              className="inline-flex min-h-11 items-center rounded-full border-2 border-signal-text px-4 text-sm font-medium text-signal-text transition-colors hover:bg-signal-text hover:text-on-signal"
             >
               {project ? `Read ${project.title}` : chapter.kind === "education" ? "About this degree" : "About this role"}
             </Link>
