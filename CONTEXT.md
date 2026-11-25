@@ -29,7 +29,7 @@ Public career site for **Sean Lai** (Lead Software Engineer, Grab Safety). Hirin
 | `/robots.txt` | Allow indexing; host = `site.url` |
 | Resume PDF | `/sean-lai-resume.pdf` (public; contains PII) |
 
-Nav: Journey · Projects · About · Resume
+Nav: Journey · About · Resume (Projects route retained as unlisted)
 
 ## Content model
 
@@ -119,6 +119,7 @@ npm run dev
 | 2026-08-28 | About skills: Python + machine learning (`#1`). |
 | 2026-10-14 | This context file added. |
 | 2026-10-14 | WCAG AA contrast polish (`--signal-text` & `--muted`); route-aware nav; sitemap.xml & robots.txt; Open Graph image & Twitter cards; resume download handling. |
+| 2026-11-25 | Hide Projects from primary navigation to focus on career journey and leadership. |
 
 Exact commit messages: `git log --oneline`.
 
